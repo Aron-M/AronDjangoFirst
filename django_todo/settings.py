@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+
 if os.path.isfile("env.py"):
     import env
-import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    os.environ.get("DATABASE_URL")
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
